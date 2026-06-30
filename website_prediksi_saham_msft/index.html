@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Prediksi Harga Saham Microsoft 2014-2024</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="hero">
+    <nav class="nav">
+      <div class="brand">MSFT LinearPredict</div>
+      <div class="nav-links">
+        <a href="#analisis">Analisis</a>
+        <a href="#prediksi">Prediksi</a>
+      </div>
+    </nav>
+    <div class="hero-content">
+      <p class="badge">Revisi data periode 2014-2024</p>
+      <h1>Website Prediksi Harga Saham Microsoft Menggunakan Regresi Linier</h1>
+      <p>Website ini dibuat sebagai implementasi sederhana hasil penelitian prediksi harga saham Microsoft (MSFT) menggunakan data historis periode 2014-2024.</p>
+      <a class="button" href="#prediksi">Coba Prediksi</a>
+    </div>
+  </header>
+
+  <main>
+    <section id="analisis" class="section">
+      <div class="section-title">
+        <p class="badge">Ringkasan Hasil Analisis</p>
+        <h2>Informasi Dataset 2014-2024 dan Evaluasi Model</h2>
+        <p>Dataset yang digunakan adalah data historis saham Microsoft dari <strong>02 Januari 2014</strong> sampai <strong>27 Desember 2024</strong>. Nilai volume pada website ditampilkan dalam satuan juta lembar.</p>
+      </div>
+      <div class="cards">
+        <div class="card"><span>Jumlah Data</span><strong>2767</strong><small>baris data</small></div>
+        <div class="card"><span>Periode Data</span><strong>2014-2024</strong><small>02 Januari 2014 s.d. 27 Desember 2024</small></div>
+        <div class="card"><span>Rata-rata Harga Penutupan</span><strong>$174.25</strong><small>USD</small></div>
+        <div class="card"><span>R² Score</span><strong>0.999922</strong><small>semakin mendekati 1 semakin baik</small></div>
+      </div>
+      <div class="grid two">
+        <div class="panel">
+          <h3>Grafik Rata-rata Harga Penutupan Bulanan 2014-2024</h3>
+          <canvas id="priceChart" width="920" height="360" aria-label="Grafik harga penutupan bulanan"></canvas>
+        </div>
+        <div class="panel">
+          <h3>Evaluasi Model</h3>
+          <table class="simple-table">
+            <tr><th>Metrik</th><th>Nilai</th><th>Keterangan</th></tr>
+            <tr><td>MAE</td><td>0.7162</td><td>Rata-rata kesalahan absolut</td></tr>
+            <tr><td>RMSE</td><td>1.1285</td><td>Akar rata-rata kesalahan kuadrat</td></tr>
+            <tr><td>MAPE</td><td>0.4967%</td><td>Rata-rata kesalahan persentase</td></tr>
+            <tr><td>R²</td><td>0.999922</td><td>Kemampuan model menjelaskan variasi data</td></tr>
+          </table>
+          <p class="note">Pembagian data menggunakan 80% data latih dan 20% data uji. Website ini bersifat edukasi dan bukan rekomendasi investasi.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="prediksi" class="section alt">
+      <div class="section-title">
+        <p class="badge">Form Prediksi</p>
+        <h2>Masukkan Data Saham</h2>
+        <p>Isi data harga pembukaan, tertinggi, terendah, volume, perubahan, dan tanggal untuk mendapatkan estimasi harga penutupan.</p>
+      </div>
+      <div class="grid two">
+        <form id="predictionForm" class="panel form-card">
+          <div class="input-group"><label for="tanggal">Tanggal</label><input type="date" id="tanggal" required /></div>
+          <div class="input-group"><label for="pembukaan">Harga Pembukaan</label><input type="number" step="0.01" id="pembukaan" required /></div>
+          <div class="input-group"><label for="tertinggi">Harga Tertinggi</label><input type="number" step="0.01" id="tertinggi" required /></div>
+          <div class="input-group"><label for="terendah">Harga Terendah</label><input type="number" step="0.01" id="terendah" required /></div>
+          <div class="input-group"><label for="volume">Volume (juta)</label><input type="number" step="0.01" id="volume" required /></div>
+          <div class="input-group"><label for="perubahan">Perubahan (%)</label><input type="number" step="0.01" id="perubahan" required /></div>
+          <div class="button-row">
+            <button type="submit" class="button">Hitung Prediksi</button>
+            <button type="button" id="fillExample" class="button secondary">Isi Contoh Data 2024</button>
+          </div>
+        </form>
+        <div class="panel result-box">
+          <h3>Hasil Prediksi</h3>
+          <p class="result-label">Estimasi harga penutupan:</p>
+          <div id="predictionResult" class="result-value">-</div>
+          <div id="predictionStatus" class="status">Masukkan data terlebih dahulu.</div>
+          <hr />
+          <p><strong>Penjelasan singkat:</strong> Model menghitung estimasi harga penutupan berdasarkan hubungan historis data 2014-2024 antara harga pembukaan, harga tertinggi, harga terendah, volume, perubahan harga, dan komponen tanggal.</p>
+          <p class="note">Hasil prediksi hanya sebagai referensi pembelajaran dan perlu dibandingkan dengan analisis lain sebelum mengambil keputusan investasi.</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>© 2026 - Website sederhana untuk revisi skripsi prediksi harga saham Microsoft periode 2014-2024.</p>
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>
